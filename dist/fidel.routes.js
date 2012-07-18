@@ -128,6 +128,10 @@ Fidel.prototype.processRoutes = function() {
   }
 }
 
+Fidel.prototype.route = function(path) {
+  routie(path);
+}
+
 Fidel.onPreInit(function() {
   this.processRoutes();
 });

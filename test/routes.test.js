@@ -67,4 +67,16 @@ suite('routes', function() {
       done();
     }, 100);
   });
+  
+  test('trigger route', function(done) {
+
+    view.test2RouteCalled = false;
+    view.route('test2');
+
+    //delay to let the onhashchange event run
+    setTimeout(function() {
+      assert.ok(view.test2RouteCalled);
+      done();
+    }, 100);
+  });
 });
