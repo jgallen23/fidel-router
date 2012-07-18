@@ -128,7 +128,7 @@ Fidel.prototype.processRoutes = function() {
   }
 }
 
-Fidel.onInit(function() {
+Fidel.onPreInit(function() {
   this.processRoutes();
 });
 
