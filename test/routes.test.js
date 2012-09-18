@@ -2,8 +2,7 @@ var assert = chai.assert;
 
 suite('routes', function() {
 
-  var view;
-  $.fidel('routeTest', {
+  var RouteTest = Fidel.declare({
     routes: {
       'test1': 'test1Route',
       'test2': 'test2Route',
@@ -22,8 +21,7 @@ suite('routes', function() {
       this.usersRouteCalled = true;
     }
   });
-  $('#fixture').routeTest();
-  view = $('#fixture').data('routeTest');
+  var view = new RouteTest($('#fixture'));
 
   setup(function(done) {
     window.location.hash = '';
@@ -78,5 +76,19 @@ suite('routes', function() {
       assert.ok(view.test2RouteCalled);
       done();
     }, 100);
+  });
+
+  test('destroy', function(done) {
+
+    view.test2RouteCalled = false;
+    view.destroy();
+    window.location.hash = 'test2';
+
+    setTimeout(function() {
+      assert.equal(view.test2RouteCalled, false);
+      done();
+    }, 100);
+
+
   });
 });
