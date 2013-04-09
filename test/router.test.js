@@ -1,4 +1,3 @@
-var assert = chai.assert;
 
 suite('routes', function() {
 
@@ -21,7 +20,7 @@ suite('routes', function() {
       this.usersRouteCalled = true;
     }
   });
-  var view = new RouteTest($('#fixture'));
+  var view = new RouteTest({ el: $('#fixture') });
 
   setup(function(done) {
     window.location.hash = '';
@@ -30,6 +29,14 @@ suite('routes', function() {
 
   teardown(function() {
     window.location.hash = '';
+  });
+
+  test('routie.noConflict', function() {
+    assert.equal(typeof window.routie, 'undefined');
+  });
+
+  test('router on prototype', function() {
+    assert.equal(typeof view.router, 'function');
   });
 
   test('basic route', function(done) {

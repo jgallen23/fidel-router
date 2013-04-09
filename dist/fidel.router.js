@@ -1,6 +1,6 @@
 /*!
  * fidel-router - Router for Fidel
- * v0.2.0
+ * v0.1.1
  * https://github.com/jgallen23/fidel-router
  * copyright Greg Allen 2013
  * MIT License
